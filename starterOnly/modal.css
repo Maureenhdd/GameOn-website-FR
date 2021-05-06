@@ -58,6 +58,11 @@ img {
   border-radius: 15px;
 }
 
+.topnav a.icon:hover,
+.topnav a.icon.icon-active {
+  color: white;
+}
+
 .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
@@ -92,6 +97,9 @@ img {
     display: block;
     text-align: left;
   }
+  .topnav a.icon {
+    color: red;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -101,7 +109,8 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    margin-top: -5ypx;
+    color: red;
   }
 }
 
@@ -159,7 +168,8 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.bground,
+.confirm-modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -169,6 +179,13 @@ main {
   width: 100%;
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
+}
+
+.confirm-modal-message {
+  min-height: 7px;
+  padding: 78% 20px;
+  text-align: center;
+  font-size: 35px;
 }
 
 .content {
@@ -183,11 +200,16 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+}
+
+.confirm-modal-body {
+  padding: 15px 0;
 }
 
 label {
@@ -325,7 +347,8 @@ input {
   transform: rotate(-45deg);
 }
 .btn-submit,
-.btn-signup {
+.btn-signup,
+.confirm-modal-btn {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -465,6 +488,7 @@ input {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
@@ -486,10 +510,15 @@ footer {
     display: block;
     box-shadow: unset;
   }
+  img {
+    width: 200px;
+  }
   .hero-content {
+    margin-top: 20px;
     background: #fff;
     color: #000;
-    padding: 20px;
+    min-width: 100%;
+    padding: 0;
   }
   .hero-content::after {
     content: unset;
@@ -498,12 +527,13 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 40px;
     white-space: normal;
   }
   .hero-text {
+    margin-top: 20px;
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   .hero-img img {
     border-radius: 10px;
