@@ -109,7 +109,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -5ypx;
+    margin-top: -5px;
     color: red;
   }
 }
