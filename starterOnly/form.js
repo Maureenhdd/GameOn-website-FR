@@ -11,7 +11,7 @@ const modalConfirmation = document.querySelector('.confirm-modal');
 const btnClose = document.querySelector('.confirm-modal-btn');
 
 
-//check input 
+//check input values 
 
 function checkFirstName() {
     const isValid = user_first.value.length <= 1
@@ -45,7 +45,7 @@ function checkisNaN() {
 
 
 }
-
+//check if one of all inputs radio is checked
 function checkCity() {
     var check = 0;
     user_city.forEach(el => check += el.checked ? 1 : 0);
@@ -54,18 +54,19 @@ function checkCity() {
     return !isValid
 }
 
+// check if input is checked
 function checkConditions() {
     const isValid = !user_condition.checked
     user_condition.parentNode.setAttribute('data-error-visible', String(isValid))
     return !isValid
 }
 
-// MODAL 
+// Open the modal 
 
 function launchModalConfirmation() {
     modalConfirmation.style.display = "block";
 }
-
+//Close the modal 
 closeModalConfirmation.addEventListener("click", closeModalConfirm);
 btnClose.addEventListener("click", closeModalConfirm)
 
@@ -74,7 +75,7 @@ function closeModalConfirm() {
 }
 
 
-// Validate 
+// function to check if all inputs are good and if it's good modal will be launched
 
 function validate() {
     let isValid = true
