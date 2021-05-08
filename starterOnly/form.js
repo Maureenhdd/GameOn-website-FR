@@ -6,21 +6,23 @@ let user_city = document.querySelectorAll("[name=location]")
 let user_tournaments = document.querySelector("#quantity")
 let user_birth = document.querySelector('#birthdate')
 const emailValidator = /^[A-Za-z0-9-_.]{1,}@[a-z]{1,}\.[a-z]{2,}$/
-const closeModalConfirmation = document.querySelector(".confirm-close");
-const modalConfirmation = document.querySelector('.confirm-modal');
-const btnClose = document.querySelector('.confirm-modal-btn');
+const stringValidator = /^[A-Za-z]{1,}$/
+const numberValidator = /^[0-9]{1,}$/
+const closeModalConfirmation = document.querySelector(".confirm-close")
+const modalConfirmation = document.querySelector('.confirm-modal')
+const btnClose = document.querySelector('.confirm-modal-btn')
 
 
 //check input values 
 
 function checkFirstName() {
-    const isValid = user_first.value.length <= 1
+    const isValid = user_first.value.length <= 1 || !stringValidator.test(user_first.value)
     user_first.parentNode.setAttribute('data-error-visible', String(isValid))
     return !isValid
 }
 
 function checkLastName() {
-    const isValid = user_last.value.length <= 1
+    const isValid = user_last.value.length <= 1 || !stringValidator.test(user_last.value)
     user_last.parentNode.setAttribute('data-error-visible', String(isValid))
     return !isValid
 }
@@ -39,12 +41,11 @@ function checkBirthDate() {
 }
 
 function checkisNaN() {
-    const isValid = isNaN(user_tournaments.value)
+    const isValid = !numberValidator.test(user_tournaments.value)
     user_tournaments.parentNode.setAttribute('data-error-visible', String(isValid))
     return !isValid
-
-
 }
+
 //check if one of all inputs radio is checked
 function checkCity() {
     var check = 0;
@@ -83,8 +84,8 @@ function validate() {
 
     if (!checkFirstName()) {
         isValid = false
-
     }
+
     if (!checkLastName()) {
         isValid = false
 
